@@ -18,6 +18,10 @@ OUTPUT_PATH = "/output/entry.txt"
 
 
 def main():
+    if not 1 <= len(ENTRY_TEXT) <= 200:
+        raise ValueError(
+            "entry text must be 1-200 characters, got %d" % len(ENTRY_TEXT)
+        )
     os.makedirs(os.path.dirname(OUTPUT_PATH), exist_ok=True)
     with open(OUTPUT_PATH, "w", encoding="utf-8") as handle:
         handle.write(ENTRY_TEXT)
